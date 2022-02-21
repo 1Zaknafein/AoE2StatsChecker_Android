@@ -41,10 +41,6 @@ class ActivityResults : AppCompatActivity(), RecyclerViewLeaderboardsAdapter.OnI
         val name = intent.getStringExtra("name")
 
         getPlayersByName(name!!)
-
-        // create 'displaying results for x' text view on top
-
-        // api call to see data for given name
     }
 
     private fun getPlayersByName(name : String){

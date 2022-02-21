@@ -7,7 +7,6 @@ import android.net.NetworkCapabilities
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
-import android.util.Log
 import android.widget.Button
 import android.widget.Toast
 import com.google.android.material.textfield.TextInputEditText

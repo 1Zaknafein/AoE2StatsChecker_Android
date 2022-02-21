@@ -1,15 +1,10 @@
 package com.example.aoestats
 
-import android.annotation.SuppressLint
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.provider.ContactsContract
 import android.util.Log
-import android.view.View
 import android.widget.*
-import androidx.core.view.isVisible
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.jjoe64.graphview.GraphView
 import com.jjoe64.graphview.GridLabelRenderer
 import com.jjoe64.graphview.series.DataPoint
@@ -18,7 +13,6 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import org.w3c.dom.Text
 import retrofit2.Retrofit
 import retrofit2.awaitResponse
 import retrofit2.converter.gson.GsonConverterFactory
@@ -58,15 +52,9 @@ class PlayerActivity : AppCompatActivity() {
         }
 
 
-        //https://aoe2.net/api/player/ratinghistory?game=aoe2de&leaderboard_id=3&steam_id=76561199003184910&count=100
-
-
-
-
         // display player name and rating
         findViewById<TextView>(R.id.player_name).text = player.name
-        //val ratingView = findViewById<TextView>(R.id.tv_PlayerRating)
-        //ratingView.text = player.rating.toString()
+
 
         displayPlayerRatingHistory(player.steam_id)
         displayGraph()
@@ -76,7 +64,6 @@ class PlayerActivity : AppCompatActivity() {
     }
 
 
-    @SuppressLint("SetTextI18n")
     private fun setTypeChangeButton(){
         val btn = findViewById<Button>(R.id.btnLeaderboardType)
 
@@ -278,7 +265,6 @@ class PlayerActivity : AppCompatActivity() {
     private fun displayGraph(){
 
         val graphView = findViewById<GraphView>(R.id.idGraphView)
-        graphView.isVisible=false
         graphView.title = ""
         graphView.titleColor = Color.WHITE
         graphView.titleTextSize = 65f
@@ -287,7 +273,6 @@ class PlayerActivity : AppCompatActivity() {
         graphView.gridLabelRenderer.labelsSpace
         graphView.gridLabelRenderer.isHorizontalLabelsVisible = false
         graphView.gridLabelRenderer.reloadStyles()
-        graphView.isVisible = true
     }
 
 }
