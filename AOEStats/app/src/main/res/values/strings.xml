@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">AOEStats</string>
+    <string name="search_player_text">Search Player </string>
+    <string name="enter_player_name">Enter player name to search</string>
+    <string name="title">AoE2 stats checker</string>
+    <string name="PNameHeader">Player </string>
+    <string name="PRatingHeader">Rating</string>
+    <string name="placeholder">placeholder</string>
+    <string name="games">Games</string>
+    <string name="winrate">Win rate</string>
+    <string name="wins">Wins</string>
+    <string name="losses">Losses</string>
+</resources>
