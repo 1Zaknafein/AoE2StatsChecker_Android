@@ -1,4 +1,4 @@
-# Stats checker Android applicaiton for ranked leaderboards in Age of Empires 2: Definitive Edition
+# Stats checker for ranked leaderboards in Age of Empires 2: Definitive Edition (Android)
 
 The app allows for checking player's statistics on 1v1 RM and Team RM ranked leaderboards, using data provided by the https://aoe2.net/ API.
 
