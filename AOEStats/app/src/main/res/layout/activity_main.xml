@@ -23,10 +23,9 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.79" />
+        app:layout_constraintVertical_bias="0.909" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="387dp"
@@ -73,5 +72,15 @@
         android:textSize="40sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Switch
+        android:id="@+id/sw_leaderboardtype"
+        android:layout_width="141dp"
+        android:layout_height="63dp"
+        android:layout_marginEnd="132dp"
+        android:layout_marginBottom="72dp"
+        android:text="Team RM"
+        app:layout_constraintBottom_toTopOf="@+id/btnSearchPlayer"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

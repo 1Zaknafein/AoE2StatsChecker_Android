@@ -6,5 +6,6 @@ data class DataRM(
     var wins: Int,
     var losses: Int,
     var rating: Int,
-    var ratingHistory: List<Int>
+    var ratingHistory: List<Int>,
+    var checked: Boolean
 )

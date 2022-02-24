@@ -24,7 +24,7 @@ class ActivityResults : AppCompatActivity(), RecyclerViewLeaderboardsAdapter.OnI
 
 
     private val BASE_URL = "https://aoe2.net/"
-    private val leaderboard_id = 4;
+    private var leaderboard_id = -1
     lateinit var playerNameList : MutableList<PlayerNames>  // for recyclerview items
     lateinit var recycler : RecyclerView
     lateinit var playerList : MutableList<Player>      // list of players (data)
@@ -39,6 +39,7 @@ class ActivityResults : AppCompatActivity(), RecyclerViewLeaderboardsAdapter.OnI
         setContentView(R.layout.activity_results)
 
         val name = intent.getStringExtra("name")
+        leaderboard_id = intent.getIntExtra("type",3)
 
         getPlayersByName(name!!)
     }

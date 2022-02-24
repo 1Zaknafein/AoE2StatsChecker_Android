@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.widget.Button
+import android.widget.Switch
 import android.widget.Toast
 import com.google.android.material.textfield.TextInputEditText
 
@@ -25,8 +26,17 @@ class MainActivity : AppCompatActivity() {
                 Toast.makeText(this,"Internet connectivity required",Toast.LENGTH_SHORT).show()
             }
             else{
+
+                val switch = findViewById<Switch>(R.id.sw_leaderboardtype)
+
+
+                val type = if (switch.isChecked) 4 else 3
+
+
+
                 val intent = Intent(this, ActivityResults::class.java)
                 intent.putExtra("name", name.text.toString())
+                intent.putExtra("type", type)
                 intent.flags = Intent.FLAG_ACTIVITY_SINGLE_TOP
                 startActivity(intent)
                 name.text = Editable.Factory.getInstance().newEditable("")

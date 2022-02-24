@@ -23,8 +23,8 @@ class PlayerActivity : AppCompatActivity() {
 
 
 
-    private val playerDataTeamRM = DataRM(0, "", 0,0, -1, listOf())
-    private val playerDataRM = DataRM(0, "", 0,0, -1, listOf())
+    private val playerDataTeamRM = DataRM(0, "", 0,0, -1, listOf(), false)
+    private val playerDataRM = DataRM(0, "", 0,0, -1, listOf(), false)
     var leaderboardID = -1
 
     private lateinit var player:Player
@@ -112,7 +112,6 @@ class PlayerActivity : AppCompatActivity() {
 
                     // should be only one as steam id was passed
 
-                    Log.i("stats", "size $data")
                     if (data.leaderboard.isEmpty()){
                         if (leaderboardID==4){
                             playerDataTeamRM.games = 0
@@ -197,10 +196,10 @@ class PlayerActivity : AppCompatActivity() {
     private fun displayPlayerRatingHistory(steam_id: String){
 
         // if already have data, no need to call api, just update views
-        if (leaderboardID==4 && playerDataTeamRM.ratingHistory.size>1){
+        if (leaderboardID==4 && playerDataTeamRM.checked){
             updateGraph()
         }
-        else if (leaderboardID==3 && playerDataRM.ratingHistory.size > 1){
+        else if (leaderboardID==3 && playerDataRM.checked){
             updateGraph()
         }
         // else no data is yet found, call api
@@ -213,16 +212,17 @@ class PlayerActivity : AppCompatActivity() {
 
             GlobalScope.launch (Dispatchers.IO){
                 try{
-                    val response = api.getPlayerRatingHistory("aoe2de",leaderboardID, steam_id, 100).awaitResponse()
+                    val response = api.getPlayerRatingHistory("aoe2de",leaderboardID, steam_id, 1000).awaitResponse()
                     if (response.isSuccessful){
                         val data = response.body()!! // returns a list of data items
 
-                        Log.i("test1", data.toString())
                         if (leaderboardID==4){
                             playerDataTeamRM.ratingHistory = data.map {it.rating}.reversed()
+                            playerDataTeamRM.checked = true
                         }
                         else{
                             playerDataRM.ratingHistory = data.map { it.rating }.reversed()
+                            playerDataRM.checked=true
                         }
 
                         updateGraph()
@@ -234,7 +234,6 @@ class PlayerActivity : AppCompatActivity() {
 
             }
         }
-
     }
 
 
